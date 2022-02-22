@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { addChar } from './keypad.actions';
+import { addChar, chek, deleteChar } from './keypad.actions';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   onEnter() {
-
+    this.store.dispatch(chek());
   }
 
   codeInsert(numberValue: number) {
@@ -25,6 +25,6 @@ export class AppComponent {
   }
 
   deleteLastSymbol() {
-
+    this.store.dispatch(deleteChar());
   }
 }
