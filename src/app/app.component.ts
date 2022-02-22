@@ -15,6 +15,7 @@ export class AppComponent implements OnDestroy{
   myState!: StateModel;
   stateSubscription!: Subscription;
   symbolsArr: string[] = [];
+  divClass = 'screen';
 
   constructor(private store: Store<{code: Object}>) {
     this.code = store.select('code');
@@ -27,8 +28,12 @@ export class AppComponent implements OnDestroy{
   onEnter() {
     this.store.dispatch(chek());
     if (this.myState.isCorrect) {
-
+      this.divClass = ' green';
+    } else {
+      this.divClass = ' red';
     }
+
+    return this.divClass;
   }
 
   getNumber(numberValue: number) {
