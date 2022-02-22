@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { addChar } from './keypad.actions';
+import { addChar, chek } from './keypad.actions';
 
 const correctPassword = '1337';
 
@@ -19,10 +19,14 @@ export const keypadReducer = createReducer(
 
     const newState = {...state, password: newPassword};
 
-    if(newPassword === correctPassword) {
+    return newState;
+  }),
+  on(chek, state => {
+    const newState = {...state};
+
+    if(newState.password === correctPassword) {
       newState.isCorrect = true;
     }
-
-    return newState;
+    return newState
   })
 );
