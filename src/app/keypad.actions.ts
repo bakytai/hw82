@@ -6,4 +6,4 @@ export const addChar = createAction(
 
 export const chek = createAction('[Keypad] Chek character');
 
-
+export const deleteChar = createAction('[Keypad] Delete character');
