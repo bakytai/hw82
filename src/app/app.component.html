@@ -1,13 +1,13 @@
 <div>
   <div id="doorCode">
     <div class="top">
-      <div class="screen">
-        <p>Code: {{ (code|async)?.password }}</p>
+      <div>
+        <p *ngFor="let symb of symbolsArr">*</p>
       </div>
     </div>
     <div class="keys">
       <ng-container *ngFor="let number of numbers">
-        <span class="the-num-btn calc-btn" (click)="codeInsert(number)">{{ number }}</span>
+        <span class="the-num-btn calc-btn" (click)="getNumber(number)">{{ number }}</span>
       </ng-container>
       <button (click)="deleteLastSymbol()"><b> < </b></button>
       <button (click)="onEnter()">E</button>
